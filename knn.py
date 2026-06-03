@@ -4,7 +4,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
-import numpy as np
 
 iris = load_iris()
 X=iris.data
@@ -49,7 +48,7 @@ knn = KNeighborsClassifier(n_neighbors=3)
 print("Ex4.2. Antrenați modelul pe datele de antrenament și afișați acuratețea obținută pe setul de testare")
 knn.fit(X_train_scaled, Y_train)
 acuratete = knn.score(X_test_scaled, Y_test)
-print(f"Acuratețea modelului KNN pe setul de testare este: {acuratete:.4f}")
+print(acuratete)
 
 print("5. Explorarea impactului valorii k")
 print("Ex5.1:Antrenați și evaluați modelul KNN pentru k în intervalul 1 – 15.")
@@ -68,7 +67,7 @@ plt.plot(valori_k, acurateti, marker='o', linestyle='-', color='b', markersize=8
 plt.title('Impactul valorii lui k asupra acurateții modelului KNN')
 plt.xlabel('Valoarea lui k (Numărul de vecini)')
 plt.ylabel('Acuratețe pe setul de testare')
-plt.xticks(valori_k)  # Afișează toate numerele de la 1 la 15 pe axa X
+plt.xticks(valori_k)
 plt.grid(True, linestyle='--', alpha=0.7)
 plt.show()
 
@@ -84,8 +83,8 @@ matrice=confusion_matrix(Y_test,Y_pred)
 print(matrice)
 
 print("6.2. Generați un raport complet de clasificare cu classification_report, incluzând precizia, recall-ul și scorul F1.")
-repost=classification_report(Y_pred,Y_test)
-print(repost)
+raport=classification_report(Y_pred,Y_test)
+print(raport)
 print("6.3. Interpretați rezultatele obținute: care clasă este cel mai bine prezisă?")
 
 print("7. Vizualizarea datelor")
