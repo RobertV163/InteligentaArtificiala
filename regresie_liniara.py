@@ -1,4 +1,3 @@
-from sklearn.datasets import load_diabetes
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -6,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
+from   sklearn.datasets import load_diabetes
 
 x=np.array([[1],[2],[3],[4]])
 y=np.array([5,6,7,8])
@@ -13,7 +13,7 @@ model=LinearRegression()
 model.fit(x,y)
 print(model.predict([[5]]))
 
-from   sklearn.datasets import load_diabetes
+
 print("Ex2:Afișați primele 5 rânduri într-un DataFrame Pandas.")
 diabetes=load_diabetes()
 df=pd.DataFrame(diabetes.data,columns=diabetes.feature_names)
